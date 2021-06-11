@@ -1,40 +1,5 @@
-<!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="ISO-8859-1" />
-    <title>Users</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
-          crossorigin="anonymous">
-</head>
+<html>
 <body>
-<div class="container-fluid">
-    <table border="1" class="table table-bordered table-hover table-striped">
-        <thead>
-        <tr class="bg-dark text-white">
-            <th>Name</th>
-            <th>Age</th>
-            <th>Email</th>
-            <th>Experience</th>
-            <th>IP address</th>
-            <th>Carrier Start</th>
-            <th>End contract</th>
-            <th>Birthday</th>
-        </tr>
-        </thead>
-        <tbody class="shadow p-3 mb-5 bg-body rounded">
-            <tr th:each="personForm : ${persons}">
-                <td th:text="${personForm.name}"></td>
-                <td th:text="${personForm.age}"></td>
-                <td th:text="${personForm.email}"></td>
-                <td th:text="${personForm.experience}"></td>
-                <td th:text="${personForm.ipAddress}"></td>
-                <td th:text="${personForm.carierStart}"></td>
-                <td th:text="${personForm.endContract}"></td>
-                <td th:text="${personForm.birthday}"></td>
-            </tr>
-        </tbody>
-    </table>
-</div>
+Congratulations! You passed all validations!
 </body>
 </html>

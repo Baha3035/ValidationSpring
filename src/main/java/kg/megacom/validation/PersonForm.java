@@ -1,6 +1,7 @@
 package kg.megacom.validation;
 
 import javax.validation.constraints.*;
+import java.util.ArrayList;
 import java.util.Date;
 
 public class PersonForm {
@@ -12,6 +13,12 @@ public class PersonForm {
     @Min(18)
     private Integer age;
 
+    @Size(max = 3)
+    private ArrayList<PreviousJob> previousJobs;
+
+    @AssertTrue
+    private boolean hasDegree;
+
     @NotEmpty
     @Email()
     private String email;
@@ -19,7 +26,7 @@ public class PersonForm {
     @Min(1)
     @Max(5)
     @Positive
-    private Integer experience;
+    private int experience;
 
     @Past
     private Date carierStart;
@@ -30,19 +37,28 @@ public class PersonForm {
     @PastOrPresent
     private Date birthday;
 
-    @AssertTrue(message = "Must be true")
-    private Boolean stayInSystem;
-
-    public Boolean getStayInSystem() {
-        return stayInSystem;
-    }
-
-    public void setExperience(Boolean stayInSystem) {
-        this.stayInSystem = stayInSystem;
-    }
-
     public Date getBirthday() {
         return birthday;
+    }
+
+    public void addPreviousJob(PreviousJob job) {
+        this.previousJobs.add(job);
+    }
+
+    public ArrayList<PreviousJob> getPreviousJobs() {
+        return previousJobs;
+    }
+
+    public void setPreviousJobs(ArrayList<PreviousJob> previousJobs) {
+        this.previousJobs = previousJobs;
+    }
+
+    public boolean isHasDegree() {
+        return hasDegree;
+    }
+
+    public void setHasDegree(boolean hasDegree) {
+        this.hasDegree = hasDegree;
     }
 
     public void setBirthday(Date birthday) {
@@ -73,11 +89,11 @@ public class PersonForm {
         return this.name;
     }
 
-    public Integer getExperience() {
+    public int getExperience() {
         return experience;
     }
 
-    public void setExperience(Integer experience) {
+    public void setExperience(int experience) {
         this.experience = experience;
     }
 
@@ -111,18 +127,5 @@ public class PersonForm {
 
     public String toString() {
         return "Person(Name: " + this.name + ", Age: " + this.age + ")";
-    }
-
-    public PersonForm(String name, Integer age, String email,
-                      Integer experience, Date carierStart, Date endContract, Date birthday, Boolean stayInSystem, String ipAddress) {
-        this.name = name;
-        this.age = age;
-        this.email = email;
-        this.experience = experience;
-        this.carierStart = carierStart;
-        this.endContract = endContract;
-        this.birthday = birthday;
-        this.stayInSystem = stayInSystem;
-        this.ipAddress = ipAddress;
     }
 }

@@ -8,9 +8,9 @@
 <div th:if="${not#lists.isEmpty(people)}">
     <table>
         <tr>
-            <th>Vendor</th>
-            <th>Product Name</th>
-            <th>Description</th>
+            <th>name</th>
+            <th>age</th>
+            <th>degree</th>
         </tr>
         <tr th:each="person : ${people}">
             <td th:text="${person.name}"></td>

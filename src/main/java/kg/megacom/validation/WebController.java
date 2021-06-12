@@ -11,7 +11,9 @@ import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import javax.validation.Valid;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Controller
 public class WebController implements WebMvcConfigurer {
@@ -57,6 +59,22 @@ public class WebController implements WebMvcConfigurer {
 
         model.addAttribute("personForm", personForm);
         return "form";
+    }
+
+    @GetMapping("/showAll")
+    public  String showAllPersons(Model model){
+        List<PreviousJob> previousJobList = new ArrayList<>();
+        previousJobList.add(new PreviousJob("Hr"));
+        previousJobList.add(new PreviousJob("SB"));
+        List<PersonForm>  personFormList = new ArrayList<>();
+        personFormList.add(new PersonForm("Max",22,previousJobList,true,"email",3,new Date(),new Date(),new Date(),"ipAddress"));
+        personFormList.add(new PersonForm("Max",22,previousJobList,true,"email",3,new Date(),new Date(),new Date(),"ipAddress"));
+        personFormList.add(new PersonForm("Max",22,previousJobList,true,"email",3,new Date(),new Date(),new Date(),"ipAddress"));
+        personFormList.add(new PersonForm("Max",22,previousJobList,true,"email",3,new Date(),new Date(),new Date(),"ipAddress"));
+        personFormList.add(new PersonForm("Max",22,previousJobList,true,"email",3,new Date(),new Date(),new Date(),"ipAddress"));
+        personFormList.add(new PersonForm("Max",22,previousJobList,true,"email",3,new Date(),new Date(),new Date(),"ipAddress"));
+        model.addAttribute("people",personFormList);
+        return "personsList";
     }
 
 }

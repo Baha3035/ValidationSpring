@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>List</title>
+</head>
+<body>
+<div th:if="${not#lists.isEmpty(people)}">
+    <table>
+        <tr>
+            <th>Vendor</th>
+            <th>Product Name</th>
+            <th>Description</th>
+        </tr>
+        <tr th:each="person : ${people}">
+            <td th:text="${person.name}"></td>
+            <td th:text="${person.age}"></td>
+            <td th:text="${person.isHasDegree}"></td>
+        </tr>
+        <table>
+</div>
+</body>
+</html>

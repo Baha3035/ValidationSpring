@@ -1,21 +1,15 @@
 package kg.megacom.validation;
 
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class PreviousJob {
     private String name;
 
-    public PreviousJob(String name) {
-        this.name = name;
-    }
 
-    public PreviousJob() {
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
 }
